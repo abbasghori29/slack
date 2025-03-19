@@ -1,6 +1,3 @@
-Here's the updated README with the `/addData` endpoint information added:
-
-```markdown
 # SlackBot Q&A Assistant
 
 A Slack integration that uses advanced language models and vector search to provide intelligent answers to user questions, with a feedback system for continuous improvement.
@@ -17,8 +14,8 @@ A Slack integration that uses advanced language models and vector search to prov
 - [Installation & Setup](#installation--setup)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Knowledge Base Updates](#knowledge-base-updates)
 - [Admin Dashboard](#admin-dashboard)
+- [Knowledge Base Management](#knowledge-base-management)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)
@@ -35,6 +32,7 @@ This SlackBot Q&A Assistant is designed to provide intelligent responses to user
   - Improved index for human-verified answers
 - **Feedback System**: Users can flag incorrect answers with a thumbs-down reaction
 - **Admin Dashboard**: Review and improve flagged answers
+- **Knowledge Base Management**: Upload CSV files with Q&A pairs to enhance the knowledge base
 - **Similarity Detection**: Prevents answering previously flagged questions
 - **Content Moderation**: Filters out inappropriate questions
 
@@ -209,34 +207,6 @@ The bot will automatically respond to messages in channels it's invited to. For 
 2. Use thumbs-down reactions to flag incorrect answers
 3. Wait for admin review of flagged questions
 
-## 📚 Knowledge Base Updates
-
-### Adding New Q&A Pairs
-
-You can upgrade the knowledge base by uploading a CSV file with question-answer pairs using the `/addData` endpoint:
-
-- **Endpoint**: `POST /addData`
-- **Content-Type**: `multipart/form-data`
-- **Body**: 
-  - `file`: CSV file with two columns: "question" and "answer"
-
-#### CSV Format
-```csv
-question,answer
-"What is the capital of France?","The capital of France is Paris."
-"How does photosynthesis work?","Photosynthesis is the process by which plants convert light energy into chemical energy stored in glucose."
-```
-
-A sample CSV file (`sample_qa.csv`) is uploaded in the repository for reference.
-
-### Updating Process
-1. Prepare your CSV file with question-answer pairs
-2. Use a tool like curl or Postman to upload:
-   ```bash
-   curl -X POST "http://your-server-url.com/addData" -F "file=@yourfile.csv"
-   ```
-3. The system will process the CSV and add the pairs to the knowledge base
-
 ## 🖥️ Admin Dashboard
 
 The admin dashboard allows you to:
@@ -245,6 +215,18 @@ The admin dashboard allows you to:
 2. Provide correct answers
 
 Access the dashboard at: `http://your-server-url.com/dashboard`
+
+## 📚 Knowledge Base Management
+
+### Adding Question-Answer Pairs via CSV
+
+The system provides an `/addData` endpoint that allows you to upload CSV files with question-answer pairs to enhance the knowledge base:
+
+1. Access the endpoint at `http://your-server-url.com/addData`
+2. Upload a CSV file containing question-answer pairs
+3. The system will process the data and update the vector indexes
+
+A sample CSV file is included in the repository for reference. This feature allows you to easily expand the bot's knowledge without requiring code changes.
 
 ## 🧪 Development
 
@@ -266,13 +248,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes: `git commit -m 'Add some amazing feature'`
 4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
-```
-
-The key changes made are:
-1. Added a new "Knowledge Base Updates" section
-2. Documented the `/addData` endpoint with details about uploading CSV files
-3. Included the expected CSV format
-4. Mentioned that a sample CSV is uploaded in the repository
-5. Provided an example curl command for uploading
-
-This addition allows users to understand how to extend the bot's knowledge base using the new endpoint and provides clear instructions for the CSV format requirements.
