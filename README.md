@@ -108,18 +108,19 @@ The system is built with a FastAPI backend that handles:
 
 4. Create a `.env` file with the following variables:
    ```
-   # OpenAI Configuration
-   OPENAI_API_KEY=your_openai_api_key
+# OpenAI Configuration
+OPENAI_API_KEY=your_openai_api_key
 
-   # Slack Configuration
-   SLACK_BOT_TOKEN=
-   SLACK_SIGNING_SECRET=
-   SLACK_CHANNEL_ID=
-   BOT_ID=
+# Slack Configuration
+SLACK_BOT_TOKEN=
+SLACK_SIGNING_SECRET=
+SLACK_CHANNEL_ID=
 
-   # Application Configuration
-   APP_HOST=0.0.0.0
-   APP_PORT=8000
+# Application Configuration
+APP_HOST=0.0.0.0
+APP_PORT=8000
+BOT_ID = 
+
    ```
 
 ## ⚙️ Configuration
